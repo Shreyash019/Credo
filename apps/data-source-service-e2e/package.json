@@ -1,0 +1,26 @@
+{
+  "name": "@all-in-one/data-source-service-e2e",
+  "version": "0.0.1",
+  "private": true,
+  "nx": {
+    "implicitDependencies": [
+  "data-source-service"
+    ],
+    "targets": {
+      "e2e": {
+        "executor": "@nx/jest:jest",
+        "outputs": [
+          "{projectRoot}/test-output/jest/coverage"
+        ],
+        "options": {
+          "jestConfig": "apps/data-source-service-e2e/jest.config.ts",
+          "passWithNoTests": true
+        },
+        "dependsOn": [
+          "data-source-service:build",
+          "data-source-service:serve"
+        ]
+      }
+    }
+  }
+}

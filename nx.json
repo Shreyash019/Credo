@@ -7,24 +7,69 @@
       "sharedGlobals"
     ],
     "production": [
-      "default"
+      "default",
+      "!{projectRoot}/**/?(*.)+(spec|test).[jt]s?(x)?(.snap)",
+      "!{projectRoot}/tsconfig.spec.json",
+      "!{projectRoot}/jest.config.[jt]s"
     ],
     "sharedGlobals": []
   },
   "plugins": [
     {
-      "plugin": "@nx/js/typescript",
+      "plugin": "@nx/next/plugin",
       "options": {
-        "typecheck": {
-          "targetName": "typecheck"
-        },
-        "build": {
-          "targetName": "build",
-          "configName": "tsconfig.lib.json",
-          "buildDepsName": "build-deps",
-          "watchDepsName": "watch-deps"
-        }
+        "buildTargetName": "build",
+        "serveTargetName": "serve",
+        "startTargetName": "start",
+        "lintTargetName": "lint",
+        "testTargetName": "test",
+        "e2eTargetName": "e2e",
+        "include": ["apps/**/next.config.js"]
+      }
+    },
+    {
+      "plugin": "@nx/webpack/plugin",
+      "options": {
+        "buildTargetName": "build",
+        "serveTargetName": "serve",
+        "lintTargetName": "lint",
+        "testTargetName": "test",
+        "include": ["apps/**/webpack.config.js"]
       }
     }
-  ]
+  ],
+  "targetDefaults": {
+    "build": {
+      "dependsOn": ["^build"],
+      "inputs": ["production", "^production"]
+    },
+    "test": {
+      "dependsOn": ["^build"],
+      "inputs": ["default", "^production"]
+    },
+    "lint": {
+      "inputs": ["default"]
+    }
+  },
+  "generators": {
+    "@nx/next": {
+      "application": {
+        "style": "css",
+        "linter": "eslint"
+      },
+      "library": {
+        "linter": "eslint"
+      }
+    },
+    "@nx/react": {
+      "application": {
+        "style": "css",
+        "linter": "eslint"
+      },
+      "library": {
+        "style": "css",
+        "linter": "eslint"
+      }
+    }
+  }
 }

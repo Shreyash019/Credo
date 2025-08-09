@@ -1,0 +1,25 @@
+{
+  "name": "dashboard-service-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "root": "apps/dashboard-service-e2e",
+  "sourceRoot": "apps/dashboard-service-e2e/src",
+  "targets": {
+    "e2e": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["coverage/apps/dashboard-service-e2e"],
+      "options": {
+        "jestConfig": "apps/dashboard-service-e2e/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "options": {
+        "lintFilePatterns": ["apps/dashboard-service-e2e/**/*.ts"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["dashboard-service"]
+}

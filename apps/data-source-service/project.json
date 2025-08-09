@@ -1,0 +1,32 @@
+{
+  "name": "data-source-service",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/data-source-service/src",
+  "implicitDependencies": ["shared-utils"],
+  "targets": {
+    "serve": {
+      "executor": "@nx/js:node",
+      "dependsOn": ["^build"],
+      "options": {
+        "buildTarget": "data-source-service:build",
+        "port": 8003,
+        "inspect": false
+      }
+    },
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "dependsOn": ["^build"],
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/data-source-service",
+        "main": "apps/data-source-service/src/main.ts",
+        "tsConfig": "apps/data-source-service/tsconfig.app.json",
+        "target": "node",
+        "compiler": "tsc",
+        "webpackConfig": "apps/data-source-service/webpack.config.js"
+      }
+    }
+  },
+  "tags": []
+}

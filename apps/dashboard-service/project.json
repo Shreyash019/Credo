@@ -1,0 +1,32 @@
+{
+  "name": "dashboard-service",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/dashboard-service/src",
+  "implicitDependencies": ["shared-utils"],
+  "targets": {
+    "serve": {
+      "executor": "@nx/js:node",
+      "dependsOn": ["^build"],
+      "options": {
+        "buildTarget": "dashboard-service:build",
+        "port": 8002,
+        "inspect": false
+      }
+    },
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "dependsOn": ["^build"],
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/dashboard-service",
+        "main": "apps/dashboard-service/src/main.ts",
+        "tsConfig": "apps/dashboard-service/tsconfig.app.json",
+        "target": "node",
+        "compiler": "tsc",
+        "webpackConfig": "apps/dashboard-service/webpack.config.js"
+      }
+    }
+  },
+  "tags": []
+}

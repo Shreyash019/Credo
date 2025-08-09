@@ -1,21 +1,26 @@
 {
+  "compileOnSave": false,
   "compilerOptions": {
-    "composite": true,
+    "rootDir": ".",
+    "baseUrl": ".",
+    "sourceMap": true,
+    "declaration": true,
     "declarationMap": true,
-    "emitDeclarationOnly": true,
-    "importHelpers": true,
-    "isolatedModules": true,
-    "lib": ["es2022"],
-    "module": "nodenext",
-    "moduleResolution": "nodenext",
-    "noEmitOnError": true,
-    "noFallthroughCasesInSwitch": true,
-    "noImplicitOverride": true,
-    "noImplicitReturns": true,
-    "noUnusedLocals": true,
-    "skipLibCheck": true,
+    "composite": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
     "strict": true,
-    "target": "es2022",
-    "customConditions": ["development"]
-  }
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "isolatedModules": true,
+    "skipLibCheck": true,
+    "paths": {
+      "@all-in-one/shared-ui": ["libs/shared-ui/src/index.ts"],
+      "@all-in-one/shared-utils": ["libs/shared-utils/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp", "dist", "out-tsc"]
 }

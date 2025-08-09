@@ -1,0 +1,24 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../../dist/out-tsc",
+    "target": "es2021",
+    "module": "commonjs",
+    "lib": ["es2021"],
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true
+  },
+  "include": [
+    "src/**/*.ts",
+    "../../libs/shared-utils/src/**/*.ts"
+  ],
+  "exclude": [
+    "jest.config.ts", 
+    "src/**/*.spec.ts", 
+    "src/**/*.test.ts",
+    "../../libs/shared-utils/**/*.spec.ts",
+    "../../libs/shared-utils/**/*.test.ts",
+    "../../libs/shared-utils/jest.config.ts"
+  ]
+}

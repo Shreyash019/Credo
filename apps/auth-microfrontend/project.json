@@ -1,0 +1,27 @@
+{
+  "name": "auth-microfrontend",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/auth-microfrontend/src",
+  "implicitDependencies": ["shared-ui", "shared-utils"],
+  "targets": {
+    "serve": {
+      "executor": "@nx/next:server",
+      "dependsOn": ["^build"],
+      "options": {
+        "buildTarget": "auth-microfrontend:build",
+  "dev": true,
+  "port": 5001
+      }
+    },
+    "build": {
+      "executor": "@nx/next:build",
+      "dependsOn": ["^build"],
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/auth-microfrontend"
+      }
+    }
+  },
+  "tags": []
+}

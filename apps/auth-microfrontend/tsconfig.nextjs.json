@@ -1,0 +1,55 @@
+{
+  "compilerOptions": {
+    "outDir": "../../dist/out-tsc",
+    "jsx": "preserve",
+    "lib": [
+      "es2020",
+      "dom"
+    ],
+    "module": "esnext",
+    "target": "es2020",
+    "moduleResolution": "bundler",
+    "allowJs": true,
+    "incremental": true,
+    "resolveJsonModule": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    // Path mappings for shared libraries
+    "baseUrl": ".",
+    "paths": {
+      "@all-in-one/shared-ui": ["../../libs/shared-ui/src/index.ts"],
+      "@all-in-one/shared-utils": ["../../libs/shared-utils/src/index.ts"]
+    },
+    // Allow noEmit for Next.js compatibility
+    "noEmit": true,
+    // Enhanced strict checking
+    "strict": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    // Additional strict rules
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "isolatedModules": true
+  },
+  "include": [
+    "../../libs/**/*",
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "jest.config.ts",
+    "src/**/*.spec.ts",
+    "src/**/*.test.ts"
+  ]
+}
