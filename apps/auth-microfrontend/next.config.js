@@ -29,6 +29,10 @@ const nextConfig = {
     maxInactiveAge: 25 * 1000,
     pagesBufferLength: 2,
   },
+  // Add allowed image domains
+  images: {
+    domains: ['res.cloudinary.com'],
+  },
   // Disable deprecated SVGR support and configure manually
   webpack(config, { isServer }) {
     // Disable Next.js from trying to auto-configure TypeScript
@@ -55,4 +59,3 @@ const plugins = [
 ];
 
 module.exports = composePlugins(...plugins)(nextConfig);
-

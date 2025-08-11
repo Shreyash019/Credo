@@ -1,4 +1,5 @@
 import './global.css';
+import { ApplicationContainer } from "@all-in-one/shared-ui"
 
 export const metadata = {
   title: 'Welcome to auth-microfrontend',
@@ -12,7 +13,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <ApplicationContainer>{children}</ApplicationContainer>
+      </body>
     </html>
   )
 }

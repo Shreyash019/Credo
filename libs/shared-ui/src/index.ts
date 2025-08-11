@@ -1,4 +1,6 @@
 
+import './tailwind.css';
+
 export * from './lib/shared-ui';
-export { ServerComponentExample } from './lib/ServerComponentExample';
-export { ClientComponentExample } from './lib/ClientComponentExample';
+export { GridLayout } from './lib/Layout';
+export { ApplicationContainer } from './lib/ApplicationContainer';
